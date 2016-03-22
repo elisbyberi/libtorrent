@@ -77,7 +77,7 @@ namespace libtorrent
 
 		for (int i = 0; i < words; ++i)
 		{
-			boost::uint32_t v = m_buf[i];
+			boost::uint32_t const v = m_buf[i];
 			// from:
 			// http://graphics.stanford.edu/~seander/bithacks.html#CountBitsSetParallel
 			static const int S[] = {1, 2, 4, 8, 16}; // Magic Binary Numbers
