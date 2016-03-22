@@ -200,7 +200,7 @@ POSSIBILITY OF SUCH DAMAGE.
 #endif // __APPLE__
 
 #define TORRENT_HAVE_MMAP 1
-
+#define TORRENT_USE_MADVISE 1
 #define TORRENT_HAS_FALLOCATE 0
 
 #define TORRENT_USE_IFADDRS 1
@@ -221,6 +221,7 @@ POSSIBILITY OF SUCH DAMAGE.
 #endif
 
 #define TORRENT_HAVE_MMAP 1
+#define TORRENT_USE_MADVISE 1
 #define TORRENT_USE_NETLINK 1
 #define TORRENT_USE_IFCONF 1
 #define TORRENT_HAS_SALEN 0
@@ -314,6 +315,7 @@ POSSIBILITY OF SUCH DAMAGE.
 #define TORRENT_HAS_SALEN 0
 #define TORRENT_HAS_SEM_RELTIMEDWAIT 1
 #define TORRENT_HAVE_MMAP 1
+#define TORRENT_USE_MADVISE 1
 
 // ==== BEOS ===
 #elif defined __BEOS__ || defined __HAIKU__
@@ -508,6 +510,10 @@ int snprintf(char* buf, int len, char const* fmt, ...)
 
 #ifndef TORRENT_HAVE_MMAP
 #define TORRENT_HAVE_MMAP 0
+#endif
+
+#ifndef TORRENT_USE_MADVISE
+#define TORRENT_USE_MADVISE 0
 #endif
 
 #ifndef TORRENT_USE_VIRTUAL_ALLOC
