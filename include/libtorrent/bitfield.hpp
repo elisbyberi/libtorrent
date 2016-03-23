@@ -178,7 +178,7 @@ namespace libtorrent
 #ifdef __GNUC__
 					return i * 32 + __builtin_clz(v);
 #else
-					long int pos;
+					DWORD pos;
 					_BitScanReverse(&pos, v);
 					return i * 32 + 31 - pos;
 #endif
@@ -224,7 +224,7 @@ namespace libtorrent
 #ifdef __GNUC__
 					return i * 32 + 31 - __builtin_ctz(last);
 #else
-					long int pos;
+					DWORD pos;
 					_BitScanForward(&pos, last);
 					return i * 32 + 31 - pos;
 #endif
@@ -254,7 +254,7 @@ namespace libtorrent
 #ifdef __GNUC__
 					return i * 32 + 31 - __builtin_ctz(v);
 #else
-					long int pos;
+					DWORD pos;
 					_BitScanForward(&pos, v);
 					return i * 32 + 31 - pos;
 #endif
