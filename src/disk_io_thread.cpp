@@ -1101,7 +1101,7 @@ namespace libtorrent
 		// the job queue now, since some were freed
 		if (num_evicted > 0)
 		{
-			mutex::scoped_lock l2(m_job_mutex);
+			std::unique_lock<std::mutex> l2(m_job_mutex);
 			if (!m_waiting_for_buffer.empty())
 			{
 				m_queued_jobs.prepend(m_waiting_for_buffer);
@@ -1170,7 +1170,7 @@ namespace libtorrent
 
 		if (ret == need_disk_buffer)
 		{
-			mutex::scoped_lock l2(m_job_mutex);
+			std::unique_lock<std::mutex> l2(m_job_mutex);
 			// this job failed because we're out of memory. We hang it on this
 			// queue to be re-run once at least one disk cache block frees up.
 			m_waiting_for_buffer.push_back(j);

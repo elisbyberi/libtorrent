@@ -47,6 +47,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 #include "libtorrent/io_service_fwd.hpp"
 #include "libtorrent/file.hpp" // for iovec_t
+#include "libtorrent/bitfield.hpp"
 
 namespace libtorrent
 {
